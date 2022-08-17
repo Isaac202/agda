@@ -1,0 +1,30 @@
+{% extends  "site/base.html" %}
+{% load static %}
+
+
+
+{% block content %}
+
+<section class="container">
+    <form class="form_login" action="{% url 'cadastrar_cliente' %}" method="post">
+        {% csrf_token %}
+        <h1>App Service</h1>
+        <h4>Nome</h4>
+        <input type="text" placeholder="Digite seu nome!" name="nome" id="">
+        <h4>E-mail</h4>
+        <input type="email" placeholder="Digite seu e-mail!" name="email" id="">
+        <h4>Whatsapp</h4>
+        <input type="text" placeholder="Digite seu Whatsapp!" name="whapp" id="">
+        <h4>Senha</h4>
+        
+        <input type="password" placeholder="Digite sua senha!" name="senha1" id="">
+        <h4>Repita sua senha</h4>
+        
+        <input type="password" placeholder="Digite sua senha!" name="senha2" id="">
+    
+        <br>
+        <input class="login_entrar" type="submit" value="Cadastrar!">
+    </form>
+</section>
+
+{% endblock %}

@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+    height: 100%;
+}
+
+.form_login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+}
+h1,h4{
+    color: #8C322A;
+}
+
+.form_login h1{
+    font-size: 40px;
+    font-weight: bold;
+    margin: 2%;
+}
+.form_login h4{
+    font-size: 25px;
+    font-weight: 530;
+}
+
+.form_login input{
+    max-width: 300px;
+    min-width: 230px;
+    width: 50%;
+    margin: 1%;
+    padding: 12px;
+    height: 40px;
+    border-radius: 8px;
+    border: 0.2px solid #6E6E6E;
+    font-size: 20px;
+    color: #8C322A;
+}
+
+.form_login span{
+    font-size: 13px;
+    color: black;
+    font-weight: bold;
+}
+
+.form_login a{
+    text-decoration: none;
+    color: blue;
+}
+
+.login_entrar{
+    color: #FFFFFF !important;
+    background-color: #8C322A;
+    cursor: pointer;
+}
+
+.login_cadastrar{
+    max-width: 230px;
+    min-width: 190px;
+    width: 50%;
+    margin: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: 0.2px solid #6E6E6E;
+    font-size: 20px;
+    color: #8C322A;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F2F2F2;
+}
+
+.olho_fechado{
+    margin-left: -12%;
+    align-items: center;
+}
+
+.cadeado{
+    margin-right: -13px;
+    margin-top: 10px;
+    position: absolute;
+}
