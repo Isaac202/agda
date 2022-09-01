@@ -137,6 +137,18 @@ h1,h4{
     color: #8C322A;
 }
 
+.head-section{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2%;
+    
+}
+
+.head-section img{
+    max-width: 40px;
+}
+
 
 .campo_input{
     width: 100%;
@@ -170,8 +182,9 @@ h1,h4{
     max-width: 400px;
     width: 100%;
     display: flex;
+    padding: 2%;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
 }
 
