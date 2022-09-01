@@ -32,6 +32,7 @@ h1,h4{
     font-weight: bold;
     margin: 2%;
 }
+
 .form_login h4{
     font-size: 25px;
     font-weight: 530;
@@ -93,4 +94,137 @@ h1,h4{
     margin-right: -13px;
     margin-top: 10px;
     position: absolute;
+}
+
+
+
+.form_login div label{
+    color: #8C322A;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 2%;
+}
+
+.form_login div input{
+    max-width: 300px;
+    min-width: 230px;
+    width: 50%;
+    margin: 1%;
+    padding: 12px;
+    height: 40px;
+    border-radius: 8px;
+    border: 0.2px solid #6E6E6E;
+    font-size: 20px;
+    color: #8C322A;
+}
+
+.cadastrar_cliente{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cadastrar_cliente input{
+    max-width: 300px;
+    min-width: 230px;
+    width: 50%;
+    margin: 1%;
+    padding: 12px;
+    height: 40px;
+    border-radius: 8px;
+    border: 0.2px solid #6E6E6E;
+    font-size: 20px;
+    color: #8C322A;
+}
+
+
+.campo_input{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.campo_input div, .campo_input input{
+    width: 100%;
+    max-width: 300px;
+}
+
+.campo_input div label{
+    font-weight: 900;
+    color: #8C322A;
+}
+
+
+.container_sercico{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 2.9%;
+    height: 100%;
+}
+
+.body_servico{
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.link_servico{
+    width: 100%;
+    text-decoration: none
+}
+
+.servico{
+    border-radius: 10px;
+    height: 60px;
+    max-width: 400px;
+    margin: 2%;
+    padding: 1%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+.icone_servico{
+    width: 100%;
+    height: auto;
+    max-width: 40px;
+    margin: 1%;
+}
+
+.servico div div p{
+    color: #8C322A;
+}
+
+.servico div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.servico div div{
+    margin: 1%;
+    display: flex;
+    max-width: 400px;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.seta_direita{
+    color: #8C322A;
+    width: 100%;
+    height: 30px;
+    max-width: 29px;
+    margin: 1%;
 }
