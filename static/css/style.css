@@ -294,15 +294,15 @@ h1,h4{
 }
 
 .carrocel-dia{
-    max-width: 320px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    max-width: 400px;
     width: 100%;
+    display: flex;
+    align-items: center !important;
+    justify-content: space-between !important;
 }
 
 .carrocel-dia div{
-    margin: 0.5%;
+   width: 150px;
 }
 
 .none{
@@ -323,6 +323,8 @@ h1,h4{
 }
 
 .semana{
-    width: 100%;
-    text-align: center;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
