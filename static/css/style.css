@@ -246,3 +246,83 @@ h1,h4{
     max-width: 29px;
     margin: 1%;
 }
+
+.botoes{
+    width: 150px;
+    padding: 2%;
+    border-radius: solid 4px;
+    color: #8C322A;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+
+.botoes_mes{
+    width: 40px;
+    height: 40px;
+    margin: 4px;
+    border: 0.01px solid #8C322A;
+    border-radius: 10px;
+}
+
+.botoes_ano{
+    width: 40px;
+    height: 40px;
+    margin: 4px;
+    border: 0.01px solid transparent;
+    border-radius: 10px; 
+    background: transparent;
+    font-size: 18px;
+    color: #8C322A;
+}
+
+.ano{
+    width: 100%;
+    text-align: center;
+}
+
+.center-head div{
+    display: flex;
+}
+
+.carrocel-mes{
+    max-width: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.carrocel-dia{
+    max-width: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.carrocel-dia div{
+    margin: 0.5%;
+}
+
+.none{
+    display: none !important;  
+}
+
+.ano-carrosel{
+    max-width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.seta_carrocel{
+    width: 20px;
+    height: 20px;
+}
+
+.semana{
+    width: 100%;
+    text-align: center;
+}

@@ -1,0 +1,149 @@
+{% extends  "site/base.html" %}
+{% load static %}
+
+
+
+{% block content %}
+<div class="head-section">
+    <div class="center-head">
+
+        <img src="{% static 'img/icons/roda.png' %}" alt="" srcset=""><h1>Escolha a data</h1> <img src="{% static 'img/icons/roda.png' %}" alt="" srcset="">
+    </div>
+    
+</div>
+
+
+<div class="head-section">
+    <div class="center-head">
+        <div>
+            <button class="botoes">Mês</button>
+
+            <button class="botoes">Dia</button>
+        </div>
+        
+    </div>
+    
+</div>
+
+<div class="head-section">
+    <div style="flex-direction: column; align-items:center;" class="center-head">
+        <!-- <div class="ano-carrosel">
+            
+            <button class="botoes_ano">2022</button>
+            <button class="botoes_ano">2022</button>
+            <button class="botoes_ano">2022</button>
+            <button class="botoes_ano">2022</button>
+            <button class="botoes_ano">2022</button>
+            <button class="botoes_ano">2022</button>
+            
+        </div> -->
+        
+        <div  class="none carrocel-mes">
+            
+            <button class="botoes_mes">Jan</button>
+            <button class="botoes_mes">Fev</button>
+            <button class="botoes_mes">Fev</button>
+            <button class="botoes_mes">Fev</button>
+            <button class="botoes_mes">Fev</button>
+            <button class="botoes_mes">Fev</button>
+            <button class="botoes_mes">Fev</button>
+            <button class="botoes_mes">Fev</button>
+            <button class="botoes_mes">Fev</button>
+            <button class="botoes_mes">Fev</button>
+            <button class="botoes_mes">Fev</button>
+            <button class="botoes_mes">Fev</button>
+            <button class="botoes_mes">Fev</button>
+            <button class="botoes_mes">Fev</button>
+            <button class="botoes_mes">Fev</button>
+            <button class="botoes_mes">Fev</button>
+            <button class="botoes_mes">Fev</button>
+        </div>
+        <div  class="carrocel-dia">
+            <div>
+                <h5 class="semana">Seg</h5>
+                <button class="botoes_mes">1</button>
+            </div>
+            <div>
+                <h5 class="semana">Seg</h5>
+                <button class="botoes_mes">1</button>
+            </div>
+            <div>
+                <h5 class="semana">Seg</h5>
+                <button class="botoes_mes">1</button>
+            </div>
+            <div>
+                <h5 class="semana">Seg</h5>
+                <button class="botoes_mes">1</button>
+            </div>
+            <div>
+                <h5 class="semana">Seg</h5>
+                <button class="botoes_mes">1</button>
+            </div>
+            <div>
+                <h5 class="semana">Seg</h5>
+                <button class="botoes_mes">1</button>
+            </div>
+            <div>
+                <h5 class="semana">Seg</h5>
+                <button class="botoes_mes">1</button>
+            </div>
+            <div>
+                <h5 class="semana">Seg</h5>
+                <button class="botoes_mes">1</button>
+            </div>
+            <div>
+                <h5 class="semana">Seg</h5>
+                <button class="botoes_mes">1</button>
+            </div>
+        
+     
+    </div>
+        
+    </div>
+
+
+    
+    
+</div>
+    
+</div>
+
+<script src="{% static '/js/jquery.js' %}"></script>
+<script src="{% static '/js/script.js' %}"></script>
+<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+  $('.carrocel-mes').slick({
+    infinite: true,
+    slidesToShow: 6,
+    slidesToScroll: 9,
+    prevArrow: '<img class="seta_carrocel" src="{% static "img/icons/seta_esquerda.png" %}" alt="" srcset="">',
+    nextArrow: '<img class="seta_carrocel" src="{% static "img/icons/seta_direita.png" %}" alt="" srcset="">',
+    
+    });
+
+    $('.ano-carrosel').slick({
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll:4,
+    prevArrow: '<img class="seta_carrocel" src="{% static "img/icons/seta_esquerda.png" %}" alt="" srcset="">',
+    nextArrow: '<img class="seta_carrocel" src="{% static "img/icons/seta_direita.png" %}" alt="" srcset="">',
+    
+    });
+
+    $('.carrocel-dia').slick({
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll:4,
+    prevArrow: '<img class="seta_carrocel" src="{% static "img/icons/seta_esquerda.png" %}" alt="" srcset="">',
+    nextArrow: '<img class="seta_carrocel" src="{% static "img/icons/seta_direita.png" %}" alt="" srcset="">',
+    
+    });
+    
+});
+</script>
+
+
+{% endblock %}
