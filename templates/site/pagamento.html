@@ -1,0 +1,89 @@
+{% extends  "site/base.html" %}
+{% load static %}
+
+
+
+{% block content %}
+<div class="head-section">
+    <div class="center-head">
+
+        <img src="{% static 'img/icons/roda.png' %}" alt="" srcset=""><h1>Pagamento</h1> <img src="{% static 'img/icons/roda.png' %}" alt="" srcset="">
+    </div>
+    
+</div>
+
+<div class="head-section">
+    <div class="center-head">
+        <button class="btn_pagamento">R$ 00,00</button>
+    </div>
+    
+</div>
+
+<div class="head-section">
+    <div class="center-head">
+        <h3 style="color: #8C322A;">Escolha o metodo</h3>
+    </div>
+<br>
+<br>
+    <div class="center-head">
+        <h3 class="botoes_metodos" style="color: #8C322A;">PIX</h3>
+        <h3 class="botoes_metodos botoes_metodos_ativo"style="color: #8C322A;">Cartão</h3>
+        <h3 class="botoes_metodos"style="color: #8C322A;">Dinheiro</h3>
+    </div>
+
+    <div class="formulario_pagamento">
+        <form class="metodo_cartao" action="" method="post">
+            <label class="label_pagamento"for="cartao">Numero do Cartão</label>
+            
+            <input class="input_pagamento" type="text" name="cartao">
+            
+            <label class="label_pagamento" for="nome">Nome</label>
+            
+            <input class="input_pagamento" type="text" name="nome">
+            <div class="validade_data">
+                <div>
+                    <div>
+                        <label class="label_pagamento" for="validade">Validade</label>
+                    </div>
+                    
+                    <input class="validade input_pagamento" type="text" name="validade">
+                </div>
+                <div>
+                    <div>
+                        <label class="label_pagamento"for="codigo">Codigo</label>
+                    </div>
+                    
+                    <input class="codigo input_pagamento" type="text" name="codigo">
+                </div>
+            </div>
+            <input class="pagar" type="submit" value="Pagar!">
+        </form>
+    </div>
+
+    <div class="center-head">
+        <h1 style="color: #8C322A;">Descrição</h1>
+    </div>
+
+    
+    
+</div>
+<div class="container_sercico">
+    <div class="body_servico">
+        <a class="link_servico" href="">
+            <div class="servico">
+                <div >
+                    <img class="icone_servico" src="https://tse2.mm.bing.net/th?id=OIP.CfBvLar9-cObrXhUkMHZ1AHaHa&pid=Api&P=0" alt="" srcset="">
+                    <div>
+                        <h4>Serviço</h4>
+                        <p style="max-height: 40px;">Descrição:  ssss sss ssd sssss ssss sssss ssss ssss ssssss sssss </p>
+                    </div>
+                </div>
+            </div>
+    
+        </a>
+    </div>
+</div>
+
+
+
+{% endblock %}

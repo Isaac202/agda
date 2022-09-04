@@ -141,7 +141,7 @@ h1,h4{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding: 2%;
+    padding: 4px;
     max-width: 400px;
     margin: 0 auto;
 }
@@ -248,12 +248,25 @@ h1,h4{
 }
 
 .botoes{
-    width: 150px;
+    width: 200px;
     padding: 2%;
-    border-radius: solid 4px;
+    border: 0.2px solid #8C322A;
+    border-radius:4px ;
     color: #8C322A;
     font-size: 20px;
     font-weight: 500;
+    background-color: #FFFFFF;
+    margin: 2%;
+}
+
+.botao_ativo{
+    background-color: #8C322A;
+    color: #FFFFFF;
+}
+
+.botoes_mes_ativo{
+    background-color: #8C322A !important;
+    color: #FFFFFF !important;
 }
 
 
@@ -261,7 +274,9 @@ h1,h4{
     width: 40px;
     height: 40px;
     margin: 4px;
+    background-color: #FFFFFF;
     border: 0.01px solid #8C322A;
+    color: #8C322A;
     border-radius: 10px;
 }
 
@@ -297,12 +312,12 @@ h1,h4{
     max-width: 400px;
     width: 100%;
     display: flex;
-    align-items: center !important;
-    justify-content: space-between !important;
+    align-items: center;
 }
 
 .carrocel-dia div{
-   width: 150px;
+   width: 100%;
+   max-width: 400px;
 }
 
 .none{
@@ -327,4 +342,129 @@ h1,h4{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+
+.horarios{
+    margin: 0 auto;
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    padding: 2%;
+    align-items: flex-start !important;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.horarios a{
+    text-decoration: none;
+    border-left: solid 8px #8C322A;
+    border-radius: 3px;
+    color: #8C322A;
+    width: 100%;
+    margin: 2%;
+    display: flex;
+    align-items: center;
+    height: 60px;
+}
+
+.horario{
+    margin: 4%;
+    height: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.horario_ativo{
+    background-color: #8C322A;
+    width: 100%;
+    border-radius: 3px;
+    padding: 2px;
+}
+
+.h3_ativo{
+    border-radius: 3px;
+    color: #FFFFFF;
+}
+
+.btn_pagamento{
+    max-width: 280px;
+    margin-top: 50px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 8px;
+    border: none;
+    color: #8C322A;
+    font-weight: bold;
+    font-size: 35px;
+    background-color: rgb(110, 110, 110,.5);
+}
+
+.botoes_metodos{
+    width: 100px;
+    height: 50px;
+    background:  #FFFFFF;
+    border: solid 0.1px #8C322A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.botoes_metodos_ativo{
+    width: 100px;
+    height: 50px;
+    background:  #8C322A;
+    color: #FFFFFF !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.metodo_cartao{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.formulario_pagamento{
+    margin: 0 auto;
+    max-width: 390px;
+    padding: 10px;
+}
+
+.validade{
+    width: 120px;
+    margin-right: 10px;
+}
+
+.codigo{
+    width: 120px;
+}
+
+.label_pagamento{
+    color: #8C322A;
+    font-weight: bold;
+}
+
+.input_pagamento{
+    height:30px;
+    border: solid 0.1px #8C322A;
+    border-radius: 4px;
+}
+
+.validade_data{
+    display: flex;
+}
+
+
+.pagar{
+    background-color: #8C322A;
+    color: #FFFFFF;
+    width: 120px;
+    height:30px;
+    border: solid 0.1px #8C322A;
+    border-radius: 4px;
+    margin-top: 10px;
 }
