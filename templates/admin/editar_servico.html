@@ -1,0 +1,55 @@
+            
+{% extends  "admin/base.html" %}
+{% load static %}
+
+
+
+{% block content %}
+{% for ser in servico %} 
+<h1 class="h3 mb-2 text-gray-800">Editando Serviço : {{ser.titulo}}</h1>
+<small>Preecha o formulario</small>
+<br>
+
+<form class="user" action="{% url 'editar_servicos' ser.id %}" method="post" enctype="multipart/form-data">
+
+    {% csrf_token %}
+        <div class="form-group row">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <input type="text" class="form-control " id="exampleFirstName" name="titulo"
+                    placeholder="Titulo" value="{{ser.titulo}}">
+            </div>
+            <div class="col-sm-6">
+                <input type="text" class="form-control " id="exampleLastName" name="preco"
+                    placeholder="Preço" value="{{ser.preco}}">
+            </div>
+            
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <input type="number" class="form-control " id="exampleFirstName" name="duracao"
+                    placeholder="Duração" value="{{ser.duracao}}">
+            </div>
+            <div class="col-sm-6">
+                <input type="number" class="form-control " id="exampleLastName" name="comissao"
+                    placeholder="Comissão" value="{{ser.comissao}}">
+            </div>
+            
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <input type="text" class="form-control" name="descricao"
+                    id="exampleInputPassword" placeholder="Descrição" value="{{ser.descricao}}">
+            </div>
+            <!-- <div class="col-sm-6 mb-3 mb-sm-0">
+                <input type="file" class="form-control filestyle" name="imagen"
+                    id="exampleInputPassword" placeholder="Icone">
+            </div> -->
+        </div>
+
+        <input class="btn btn-primary"type="submit" value="Salvar Edção">
+  
+    
+</form>
+{% endfor %}
+{% endblock %}

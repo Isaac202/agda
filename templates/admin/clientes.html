@@ -1,0 +1,84 @@
+            
+{% extends  "admin/base.html" %}
+{% load static %}
+
+
+
+{% block content %}
+            
+{% extends  "admin/base.html" %}
+{% load static %}
+
+
+
+{% block content %}
+
+<h1 class="h3 mb-2 text-gray-800">Clientes</h1>
+                    <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+                        For more information about DataTables, please visit the <a target="_blank"
+                            href="https://datatables.net">official DataTables documentation</a>.</p> -->
+
+                    <!-- DataTales Example -->
+                    <a type="button" class="btn btn-primary"href="{% url 'criar_servicos' %}">Criar Cliente</a>
+                    <br>
+                    <br>
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Lista de Clientes</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Icone</th>
+                                            <th>Titulo</th>
+                                            <th>Preço</th>
+                                            <th>Duração</th>
+                                            <th>Comissão</th>
+                                            <th>Descrição</th>
+                                            <th>Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Icone</th>
+                                            <th>Titulo</th>
+                                            <th>Preço</th>
+                                            <th>Duração</th>
+                                            <th>Comissão</th>
+                                            <th>Descrição</th>
+                                            <th>Ações</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <!-- {% for servico in servicos %}
+                                        <tr>
+                                            <td>{{servico.id}}</td>
+                                            <td>
+                                                <img width="100px" src="{{servico.imagen.url}}" alt="">
+                                            </td>
+                                            <td>{{servico.titulo}}</td>
+                                            <td>R$ {{servico.preco}}</td>
+                                            <td>{{servico.duracao}}</td>
+                                            <td>{{servico.comissao}} %</td>
+                                            <td>{{servico.descricao}}</td>
+                                            <td>
+                                                <a type="button" class="btn btn-primary" href="{% url 'editar_servicos' servico.id %}">Editar</a>
+                                                <br>
+                                                <br>
+                                                <a type="button" class="btn btn-danger" href="{% url 'excluir' servico.id %}">Excluir</a>
+                                            </td>
+                                        </tr>
+                                        {% endfor %} -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+{% endblock %}
+
+{% endblock %}

@@ -4,4 +4,4 @@ from django.shortcuts import render
 
 
 def manager(request):
-    return render(request,"admin/home/index.html")
+    return render(request,"admin/index.html")
