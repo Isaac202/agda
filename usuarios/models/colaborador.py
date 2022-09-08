@@ -17,4 +17,4 @@ class Colaborador(Pessoa):
     )
    
     def __str__(self):
-        return f'Nome do Colaborador {self.nome}'
+        return self.nome

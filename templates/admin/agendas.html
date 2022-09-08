@@ -1,0 +1,110 @@
+            
+{% extends  "admin/base.html" %}
+{% load static %}
+
+
+
+{% block content %}
+
+{% if mensagem %}
+
+<div class="alert alert-{{mensagem}}" role="alert">
+    Serviço  <a href="#" class="alert-link">cadastrado</a> com sucesso
+</div>
+{% endif %}
+<h1 class="h3 mb-2 text-gray-800">Agenda Semanal</h1>
+                    <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+                        For more information about DataTables, please visit the <a target="_blank"
+                            href="https://datatables.net">official DataTables documentation</a>.</p> -->
+
+                    <!-- DataTales Example -->
+                    <a type="button" class="btn btn-primary"href="{% url 'criar_horario' %}">Criar Horário</a>
+                    <br>
+                    <br>
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Lista de Horário</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Profissional</th>
+                                            <th>Serviço</th>
+                                            <th>Inicio</th>
+                                            <th>Fim</th>
+                                            <th>Horário</th>
+                                            <!-- <th>Duração</th>
+                                            <th>Comissão</th>
+                                            <th>Descrição</th>-->
+                                            <th>Ações</th> 
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Profissional</th>
+                                            <th>Serviço</th>
+                                            <th>Inicio</th>
+                                            <th>Fim</th>
+                                            <th>Horário</th>
+                                            <!-- <th>Duração</th>
+                                            <th>Comissão</th>
+                                            <th>Descrição</th>-->
+                                            <th>Ações</th> 
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        {% for horario in horarios %}
+                                        <tr>
+                                            <td>{{horario.id}}</td>
+                                            <td>
+                                                {{horario.colaborador}}
+                                            </td>
+                                            <td>{{horario.servico}}</td>
+                                            <td>{{horario.inicio}}</td>
+                                            <td>{{horario.fim}}</td>
+                                            <td >
+                                                {% if horario.segunda %}
+                                                <a type="button" class="btn btn-primary"href="#">Segunda</a>
+                                                {% endif %}
+                                                {% if horario.terca %}
+                                                <a type="button" class="btn btn-primary"href="#">Terça</a>
+                                                {% endif %}
+                                                {% if horario.quarta %}
+                                                <a type="button" class="btn btn-primary"href="#">Quarta</a>
+                                                {% endif %}
+                                                {% if horario.quinta %}
+                                                <a type="button" class="btn btn-primary"href="#">Quinta</a>
+                                                {% endif %}
+                                                {% if horario.sexta %}
+                                                <a type="button" class="btn btn-primary"href="#">Sexta</a>
+                                                {% endif %}
+                                                {% if horario.sabado %}
+                                                <a type="button" class="btn btn-primary"href="#">Sabado</a>
+                                                {% endif %}
+                                                {% if horario.domingo %}
+                                                <a type="button" class="btn btn-primary"href="#">Domingo</a>
+                                                {% endif %}
+                                            </td>
+                                            <!-- <td>{{servico.duracao}}</td>
+                                            <td>{{servico.comissao}} %</td>
+                                            <td>{{servico.descricao}}</td>
+                                            -->
+                                            <td>
+                                                <a type="button" class="btn btn-primary" href="{% url 'editar_horario' horario.id %}">Editar</a>
+                                                <br>
+                                                <br>
+                                                <a type="button" class="btn btn-danger" href="{% url 'excluir_horario' horario.id %}">Excluir</a>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+{% endblock %}

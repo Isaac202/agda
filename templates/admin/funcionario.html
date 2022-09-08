@@ -6,18 +6,18 @@
 
 {% block content %}
 
-<h1 class="h3 mb-2 text-gray-800">Clientes</h1>
+<h1 class="h3 mb-2 text-gray-800">Profissionais</h1>
                     <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank"
                             href="https://datatables.net">official DataTables documentation</a>.</p> -->
 
                     <!-- DataTales Example -->
-                    <!-- <a type="button" class="btn btn-primary"href="{% url 'criar_servicos' %}">Criar Cliente</a> -->
+                    <a type="button" class="btn btn-primary"href="{% url 'criar_funcionarios' %}">Criar Profissional</a>
                     <br>
                     <br>
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Lista de Clientes</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Lista de Profissionais</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -29,6 +29,7 @@
                                             <th>E-mail</th>
                                             <th>Telefone/Whatsapp</th>
                                             <th>Status</th>
+                                            <th>Ações</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -38,23 +39,23 @@
                                             <th>E-mail</th>
                                             <th>Telefone/Whatsapp</th>
                                             <th>Status</th>
+                                            <th>Ações</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        {% for cliente in clientes %}
+                                        {% for funcionario in funcionarios %}
                                         <tr>
-                                            <td>{{cliente.id}}</td>
-                                            <td>{{cliente.nome}}</td>
-                                            <td>{{cliente.email}}</td>
-                                            <td>{{cliente.telefone}}</td>
-                                            <td>{{cliente.status}}</td>
+                                            <td>{{funcionario.id}}</td>
+                                            <td>{{funcionario.nome}}</td>
+                                            <td>{{funcionario.email}}</td>
+                                            <td>{{funcionario.telefone}}</td>
+                                            <td>{{funcionario.tipo_colaborador}}</td>
                                             
-                                            <!-- <td>
-                                                <a type="button" class="btn btn-primary" href="#">Editar</a>
-                                                <br>
-                                                <br>
-                                                <a type="button" class="btn btn-danger" href="#">Excluir</a>
-                                            </td> -->
+                                            <td>
+                                                <a type="button" class="btn btn-primary" href="{% url 'editar_funcionario' funcionario.id  %}">Editar</a>
+                                               
+                                                <a type="button" class="btn btn-danger" href="{% url 'excluir_funcionario' funcionario.id  %}">Excluir</a>
+                                            </td> 
                                         </tr>
                                         {% endfor %}
                                     </tbody>

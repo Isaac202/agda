@@ -14,7 +14,7 @@ class Horario(models.Model):
     domingo = models.BooleanField(default=True)
     inicio = models.TimeField()
     fim = models.TimeField()
-    
+    disponivel = models.BooleanField(default=True)
     criado_em = models.DateTimeField(auto_now_add=True)
     atualizado_em = models.DateTimeField(auto_now=True)
     

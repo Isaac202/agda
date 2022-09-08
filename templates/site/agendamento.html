@@ -58,59 +58,10 @@
             <button class="botoes_mes">Fev</button>
             <button class="botoes_mes">Fev</button>
         </div>
-        <div  class="carrocel-dia">
-            <div>
-                <h5 class="semana">Seg</h5>
-                <button class="botoes_mes">1</button>
-            </div> 
-            <div>
-                <h5 class="semana">Seg</h5>
-                <button class="botoes_mes botoes_mes_ativo">45</button>
-            </div> 
-            <div>
-                <h5 class="semana">Seg</h5>
-                <button class="botoes_mes">1</button>
-            </div> 
-            <div>
-                <h5 class="semana">Seg</h5>
-                <button class="botoes_mes">1</button>
-            </div> 
-            <div>
-                <h5 class="semana">Seg</h5>
-                <button class="botoes_mes">1</button>
-            </div> 
-            <div>
-                <h5 class="semana">Seg</h5>
-                <button class="botoes_mes">1</button>
-            </div> 
-            <div>
-                <h5 class="semana">Seg</h5>
-                <button class="botoes_mes">1</button>
-            </div> 
-            <div>
-                <h5 class="semana">Seg</h5>
-                <button class="botoes_mes">1</button>
-            </div> 
-            <div>
-                <h5 class="semana">Seg</h5>
-                <button class="botoes_mes">1</button>
-            </div> 
-            <div>
-                <h5 class="semana">Seg</h5>
-                <button class="botoes_mes">1</button>
-            </div> 
-            <div>
-                <h5 class="semana">Seg</h5>
-                <button class="botoes_mes">1</button>
-            </div> 
-            <div>
-                <h5 class="semana">Seg</h5>
-                <button class="botoes_mes">1</button>
-            </div> 
-            <div>
-                <h5 class="semana">Seg</h5>
-                <button class="botoes_mes">1</button>
-            </div>     
+        <div id="mes_dia"  class="carrocel-dia">
+            
+            
+              
     </div>
             
     </div>
@@ -150,13 +101,22 @@
     
 </div>
 
-<script src="{% static '/js/jquery.js' %}"></script>
-<script src="{% static '/js/script.js' %}"></script>
+<script src="{% static 'assets/js/jquery.js' %}"></script>
+<script src="{% static 'assets/js/script.js' %}"></script>
 <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 <script>
     $(document).ready(function(){
+
+        $("#mes_dia").html(
+            `{% for i in semana_dia %}
+            <div>
+                <h5 class="semana">{{i.dia}}</h5>
+                <button class="botoes_mes">{{i.semana}}</button>
+            </div> 
+           {% endfor %}`
+        )
   $('.carrocel-mes').slick({
     infinite: true,
     slidesToShow: 6,

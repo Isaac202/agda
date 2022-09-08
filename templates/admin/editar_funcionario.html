@@ -1,0 +1,60 @@
+{% extends  "admin/base.html" %}
+{% load static %}
+
+
+
+{% block content %}
+<h1 class="h3 mb-2 text-gray-800">Editar Proficilnal</h1>
+<small>Preecha o formulario</small>
+<br>
+{% for func in funcionario %}
+<form class="user" action="{% url 'editar_funcionario' func.id %}" method="post" enctype="multipart/form-data">
+
+    {% csrf_token %}
+        <div class="form-group row">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <input type="text" class="form-control " id="exampleFirstName" name="nome" value="{{func.nome}}"
+                    placeholder="Nome">
+            </div>
+            <div class="col-sm-6">
+                <input type="email" class="form-control " id="exampleLastName" name="email" value="{{func.email}}"
+                    placeholder="E-mail">
+            </div>
+            
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <input type="text" class="form-control " id="exampleFirstName" name="whapp" value="{{func.telefone}}"
+                    placeholder="Whatsapp">
+            </div>
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <select class="form-select" aria-label="Default select example" name="tipo">
+                    <option selected>Selecione uma categoria de funcionario</option>
+                    <option value="adm">ADMINISTRATIVO</option>
+                    <option value="gerente">GERENTE</option>
+                    <option value="funcio">FUNCIONARIO</option>
+                  </select>
+            </div>
+        </div>
+        <!-- <div class="form-group row">
+            
+            <div class="col-sm-6">
+                <input type="password" class="form-control " id="exampleLastName" name="senha1"
+                    placeholder="Senha de acesso">
+            </div>
+            <div class="col-sm-6">
+                <input type="password" class="form-control " id="exampleLastName" name="senha2"
+                    placeholder="Repita a senha">
+            </div>
+            
+        </div> -->
+
+        <input class="btn btn-primary"type="submit" value="Criar Proficilnal">
+  
+    
+</form>
+
+{% endfor %}
+
+{% endblock %}
