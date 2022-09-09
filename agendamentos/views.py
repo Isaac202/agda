@@ -1,5 +1,6 @@
 from django.http import JsonResponse
 from django.shortcuts import render,redirect
+from agendamentos.models.agendamento import Agendamento
 from agendamentos.models.horarios import Horario
 from agendamentos.models.servicos import Servico
 from usuarios.models.colaborador import Colaborador
@@ -30,17 +31,23 @@ def agendamento(request,servico_id):
     servico = Servico.objects.filter(id=servico_id)
     horarios_disponiveis_do_servico = Horario.objects.filter(servico=servico_id).filter(disponivel=True)
     dia_hoje = datetime.today()
-    print(dia_hoje)
+    
     ano = dia_hoje.year 
     mes = dia_hoje.month 
     dias = calendar.monthrange(ano,mes) 
     lista_dias = datetime(ano,mes,dias[1])
-    print(dia_hoje.day)
+   
     numero_de_dias =lista_dias.day 
-    print(numero_de_dias)
+   
     semana = date(year=ano, month=mes, day=dia_hoje.day)
     dias_para_adcionar = numero_de_dias - dia_hoje.day
-    print(dias_para_adcionar)
+   
+    MES = [
+        "Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dev"
+    ]
+    print(MES[mes-1:])
+
+    
     DIAS = [
         'Seg',
         'Ter',
@@ -51,7 +58,6 @@ def agendamento(request,servico_id):
         'Dom'
     ]
     dia = []
-    semana = []
     for dia_semana in range(dias_para_adcionar+1):
         dia_add =numero_de_dias-dias_para_adcionar
         indice_semana = date(year=ano, month=mes, day=dia_add).weekday()
@@ -59,12 +65,14 @@ def agendamento(request,servico_id):
                     "dia":dia_add,
                     "semana":DIAS[indice_semana]
                     })
-        dias_para_adcionar =dias_para_adcionar -1
+        dias_para_adcionar =dias_para_adcionar -1  
+    meses =  MES[mes-1:]
     
     return render(
             request,"site/agendamento.html",
             {
-                "semana_dia":dia
+                "semana_dia":dia,
+                "mes":meses + MES
             }
             )
 

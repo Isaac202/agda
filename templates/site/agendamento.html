@@ -14,11 +14,11 @@
 
 
 <div class="head-section">
-    <div class="center-head">
+    <div  class="  center-head">
         <div>
-            <button class="botoes botao_ativo">Mês</button>
+            <button id="mes_ativo" class="botoes botao_ativo">Mês</button>
 
-            <button class="botoes">Dia</button>
+            <button id="dia_ativo"class="botoes">Dia</button>
         </div>
         
     </div>
@@ -38,28 +38,18 @@
             
         </div> -->
         
-        <div  class="none carrocel-mes">
+        <div id="mes" class=" carrocel-mes">
             
-            <button class="botoes_mes">Jan</button>
-            <button class="botoes_mes">Fev</button>
-            <button class="botoes_mes">Fev</button>
-            <button class="botoes_mes">Fev</button>
-            <button class="botoes_mes">Fev</button>
-            <button class="botoes_mes">Fev</button>
-            <button class="botoes_mes">Fev</button>
-            <button class="botoes_mes">Fev</button>
-            <button class="botoes_mes">Fev</button>
-            <button class="botoes_mes">Fev</button>
-            <button class="botoes_mes">Fev</button>
-            <button class="botoes_mes">Fev</button>
-            <button class="botoes_mes">Fev</button>
-            <button class="botoes_mes">Fev</button>
-            <button class="botoes_mes">Fev</button>
-            <button class="botoes_mes">Fev</button>
-            <button class="botoes_mes">Fev</button>
+            
         </div>
-        <div id="mes_dia"  class="carrocel-dia">
-            
+        <div id="mes_dia"  class="carrocel-dia none">
+            {% for i in semana_dia %}
+                    <a>
+                        <h5 class="semana">{{i.dia}}</h5>
+                        <button class="botoes_mes">{{i.semana}}</button>
+                    </a> 
+                {% endfor %}
+        </div>
             
               
     </div>
@@ -109,14 +99,29 @@
 <script>
     $(document).ready(function(){
 
-        $("#mes_dia").html(
-            `{% for i in semana_dia %}
-            <div>
-                <h5 class="semana">{{i.dia}}</h5>
-                <button class="botoes_mes">{{i.semana}}</button>
-            </div> 
-           {% endfor %}`
-        )
+       
+
+        $("#mes").html(`
+        {% for i in mes %}
+        <button class="botoes_mes">{{i}}</button>
+        {% endfor %}
+        `)
+
+        $(document).on('click', '[class^="botoes_mes"]', function(e) {
+                $(".botoes_mes").removeClass("botoes_mes_ativo")
+                $(this).addClass("botoes_mes_ativo")
+                $("#mes_ativo").removeClass("botao_ativo")
+                $("#dia_ativo").addClass("botao_ativo")
+                $("#mes_dia").removeClass("none")
+                $("#mes").addClass("none")
+        })
+
+
+    
+
+    function tornaAtivo(e){
+            e.addClass("botoes_mes_ativo")
+        }
   $('.carrocel-mes').slick({
     infinite: true,
     slidesToShow: 6,
