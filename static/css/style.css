@@ -283,6 +283,17 @@ h1,h4{
     cursor: pointer;
 }
 
+.botoes_dia{
+    width: 40px;
+    height: 40px;
+    margin: 4px;
+    background-color: #FFFFFF;
+    border: 0.01px solid #8C322A;
+    color: #8C322A;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
 .botoes_ano{
     width: 40px;
     height: 40px;
@@ -357,6 +368,23 @@ h1,h4{
     align-items: flex-start !important;
     justify-content: space-between;
     flex-direction: column;
+}
+
+.data_agendamento{
+    display: flex;
+    flex-direction: column;
+}
+
+.input_data{
+    border: solid 0.5px #8C322A;
+    border-radius: 3px;
+    color: #8C322A;
+    width: 100%;
+    margin: 2%;
+    display: flex;
+    font-size: 20px;
+    align-items: center;
+    height: 60px;
 }
 
 .horarios a{

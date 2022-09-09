@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from agendamentos.views import  agendamento, criar_horario, criar_servicos,  editar_horario, editar_servicos, excluir_horario, horarios, listar_servicos, servicos,excluir
+from agendamentos.views import  agendamento, agendar, criar_horario, criar_servicos,  editar_horario, editar_servicos, excluir_horario, horarios, listar_servicos, servicos,excluir
 
 urlpatterns = [
     path("",servicos, name="servicos"),
@@ -13,4 +13,5 @@ urlpatterns = [
     path("criar_horario", criar_horario, name="criar_horario"),
     path("editar_horario/<int:horario_id>", editar_horario, name="editar_horario"),
     path("excluir_horario/<int:horario_id>", excluir_horario, name="excluir_horario"), 
+    path("agendar",agendar, name="agendar"),
 ]

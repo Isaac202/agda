@@ -12,9 +12,10 @@
     
 </div>
 
+
 <div class="head-section">
     <div class="center-head">
-        <button class="btn_pagamento">R$ 00,00</button>
+        <button class="btn_pagamento">R$ {{agenda.servico.preco}}</button>
     </div>
     
 </div>
@@ -32,9 +33,10 @@
     </div>
 
     <div class="formulario_pagamento">
-        <form class="metodo_cartao" action="" method="post">
+        <form class="metodo_cartao" action="{% url 'pagar' %}" method="post">
+            {% csrf_token %}
             <label class="label_pagamento"for="cartao">Numero do Cartão</label>
-            
+            <input type="hidden" name="agenda" value="{{agenda.id}}">            
             <input class="input_pagamento" type="text" name="cartao">
             
             <label class="label_pagamento" for="nome">Nome</label>
@@ -72,10 +74,10 @@
         <a class="link_servico" href="">
             <div class="servico">
                 <div >
-                    <img class="icone_servico" src="https://tse2.mm.bing.net/th?id=OIP.CfBvLar9-cObrXhUkMHZ1AHaHa&pid=Api&P=0" alt="" srcset="">
+                    <img class="icone_servico" src="{{agenda.servico.imagen.url}}" alt="" srcset="">
                     <div>
-                        <h4>Serviço</h4>
-                        <p style="max-height: 40px;">Descrição:  ssss sss ssd sssss ssss sssss ssss ssss ssssss sssss </p>
+                        <h4>{{agenda.servico}}</h4>
+                        <p style="max-height: 40px;">Descrição:  {{agenda.servico.descricao}} </p>
                     </div>
                 </div>
             </div>

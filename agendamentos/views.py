@@ -3,11 +3,12 @@ from django.shortcuts import render,redirect
 from agendamentos.models.agendamento import Agendamento
 from agendamentos.models.horarios import Horario
 from agendamentos.models.servicos import Servico
+from usuarios.models.clientes import Clientes
 from usuarios.models.colaborador import Colaborador
 import calendar 
 from datetime import date, datetime
 from agendamentos.forms import HorarioForm
-# Create your views here.
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -15,7 +16,7 @@ from agendamentos.forms import HorarioForm
 
 
 #==============================VIEWS DE SERVIÇOS=========================#
-
+@login_required(login_url='/login')
 def servicos(request):
     servico = Servico.objects.all()
     return render(
@@ -26,7 +27,7 @@ def servicos(request):
                 }                
                 )
 
-
+@login_required(login_url='/login')
 def agendamento(request,servico_id):
     servico = Servico.objects.filter(id=servico_id)
     horarios_disponiveis_do_servico = Horario.objects.filter(servico=servico_id).filter(disponivel=True)
@@ -72,9 +73,37 @@ def agendamento(request,servico_id):
             request,"site/agendamento.html",
             {
                 "semana_dia":dia,
-                "mes":meses + MES
+                "mes":meses + MES,
+                "horarios":horarios_disponiveis_do_servico,
+                "servico":servico
             }
             )
+
+@login_required(login_url='/login')
+def agendar(request):
+    
+    if request.method == "POST":
+        cliente = Clientes.objects.get(user=4)
+        servico = Servico.objects.get(id=request.POST["servico"])
+        colaborador = (
+                Horario.objects.filter(servico =request.POST["servico"])
+                .filter(disponivel=True)
+                .filter(inicio=request.POST["hora"])
+                )
+        colaborador = list(colaborador.values_list("colaborador_id",flat=True))[0]
+        colaborador = Colaborador.objects.get(id=colaborador)
+        valor = servico.preco
+        agendamento = Agendamento.objects.create(
+            cliente =cliente,
+            servico =servico,
+            colaborador= colaborador,
+            data = request.POST["data"],
+            status="pen",            
+        )
+        agendamento = agendamento.id
+        print(agendamento)
+        return redirect(f"/checkout/?age={agendamento}")
+
 
 def listar_servicos(request):
     servico = Servico.objects.all()

@@ -13,7 +13,7 @@
 </div>
 
 
-<div class="head-section">
+<!-- <div class="head-section">
     <div  class="  center-head">
         <div>
             <button id="mes_ativo" class="botoes botao_ativo">Mês</button>
@@ -23,7 +23,7 @@
         
     </div>
     
-</div>
+</div> -->
 
 <div class="head-section">
     <div style="flex-direction: column; align-items:center;" class="center-head">
@@ -38,56 +38,85 @@
             
         </div> -->
         
-        <div id="mes" class=" carrocel-mes">
+        <!-- <div id="mes" class=" carrocel-mes">
             
             
         </div>
         <div id="mes_dia"  class="carrocel-dia none">
             {% for i in semana_dia %}
-                    <a>
-                        <h5 class="semana">{{i.dia}}</h5>
-                        <button class="botoes_mes">{{i.semana}}</button>
-                    </a> 
-                {% endfor %}
-        </div>
-            
+            <div>
+                <h5 class="semana">{{i.semana}}</h5>
+                <input style="text-align: center;width: 40px;
+                height: 40px;
+                margin: 4px;
+                background-color: #FFFFFF;
+                border: 0.01px solid #8C322A;
+                color: #8C322A;
+                border-radius: 10px;
+                cursor: pointer;" class="botoes_dia" 
+                value="{{i.dia}}" />
+            </div> 
+            {% endfor %}
+        </div> -->
+        <h1>Serviço</h1>
+        {% for serv in servico %}
+        <a class="link_servico" href="">
+            <div class="servico">
+                <div >
+                    <img class="icone_servico" src="{{serv.imagen.url}}" alt="" srcset="">
+                    <div>
+                        <h4>{{ serv.titulo }}</h4>
+                        <p style="max-height: 40px;">Descrição:{{serv.descricao}} </p>
+                    </div>
+                </div>    
+            </div>
+
+        </a>
+        {% endfor %}
+        <form class="data_agendamento" action="{% url 'agendar' %}" method="post">
+                {% csrf_token %}
+            <h1>Escolha uma data</h1>
+            <input class="input_data" type="text" name="data" id="" placeholder="Digite uma data" onfocus="(this.type='date')">
+            <h1>Selecione um horario</h1>
+            {% for serv in servico %}
+            <input type="hidden" name="servico" value="{{serv.id}}">
+            {% endfor %}
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <select class="input_data" aria-label="Default select example" name="hora">
+                    <option class="input_data" selected>Selecione um horario</option>
+                    {% for hora in horarios %}
+                    <option class="input_data" selected>{{hora.inicio}}</option>
+                    {% endfor %}
+
+                  </select>
+            </div>
+            <input style="width: 100%; height:40px; margin-top: 30%;" class="login_entrar" type="submit" value="Confirmar">
+        </form>
               
     </div>
             
     </div>
+    
 
 
-    <div class="horarios">
-        <a href="">
-            <div class="horario">
-                <h3>11:00</h3>
-            </div>
-        </a>
-
-        <a href="">
+    <!-- <div class="horarios">
+        <a href="#">
             <div class="horario horario_ativo">
                 <h3 class="h3_ativo">11:00 PM</h3>
             </div>
         </a>
 
-        <a href="">
+        {% for hora in horarios %}
+        <a href="#">
             <div class="horario">
-                <h3>11:00</h3>
+                <input type="hidden" value="{{hora.fim}}" name="">
+                <h3>{{hora.fim}}</h3>
             </div>
         </a>
+        {% endfor %}
 
-        <a href="">
-            <div class="horario">
-                <h3>12:00</h3>
-            </div>
-        </a>
-
-        <a href="">
-            <div class="horario">
-                <h3>13:00</h3>
-            </div>
-        </a>
-    </div>
+        
+    </div> -->
     
 </div>
 
@@ -103,7 +132,15 @@
 
         $("#mes").html(`
         {% for i in mes %}
-        <button class="botoes_mes">{{i}}</button>
+        <input style="text-align: center;width: 40px;
+                height: 40px;
+                margin: 4px;
+                background-color: #FFFFFF;
+                border: 0.01px solid #8C322A;
+                color: #8C322A;
+                border-radius: 10px;
+                cursor: pointer;" class="botoes_mes" 
+                value="{{i}}" />
         {% endfor %}
         `)
 
@@ -114,14 +151,19 @@
                 $("#dia_ativo").addClass("botao_ativo")
                 $("#mes_dia").removeClass("none")
                 $("#mes").addClass("none")
+                $("#carrosel_dia").trigger('click');
+                var mes = $(this)
+                console.log(mes.val())
         })
 
+        $(document).on('click', '[class^="botoes_dia"]', function(e) {
+                var mes = $(this)
+                console.log(mes.val())
+        })
 
-    
+        
 
-    function tornaAtivo(e){
-            e.addClass("botoes_mes_ativo")
-        }
+
   $('.carrocel-mes').slick({
     infinite: true,
     slidesToShow: 6,
@@ -144,7 +186,7 @@
     infinite: true,
     slidesToShow: 8,
     slidesToScroll:6,
-    prevArrow: '<img class="seta_carrocel" src="{% static "img/icons/seta_esquerda.png" %}" alt="" srcset="">',
+    prevArrow: '<img id="carrosel_dia" class="seta_carrocel" src="{% static "img/icons/seta_esquerda.png" %}" alt="" srcset="">',
     nextArrow: '<img class="seta_carrocel" src="{% static "img/icons/seta_direita.png" %}" alt="" srcset="">',
     
     });

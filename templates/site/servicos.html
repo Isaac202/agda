@@ -15,7 +15,7 @@
 <div class="container_sercico">
     <div class="body_servico">
         {% for serv in servico %}
-        <a class="link_servico" href="">
+        <a class="link_servico" href="{% url 'agendamento' serv.id %}">
             <div class="servico">
                 <div >
                     <img class="icone_servico" src="{{serv.imagen.url}}" alt="" srcset="">
