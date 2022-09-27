@@ -83,7 +83,7 @@ def agendamento(request,servico_id):
 def agendar(request):
     
     if request.method == "POST":
-        cliente = Clientes.objects.get(user=4)
+        cliente = Clientes.objects.get(user=request.user.id)
         servico = Servico.objects.get(id=request.POST["servico"])
         colaborador = (
                 Horario.objects.filter(servico =request.POST["servico"])
