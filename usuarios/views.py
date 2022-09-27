@@ -1,7 +1,8 @@
 from django.shortcuts import render,redirect
 from usuarios.models.clientes import Clientes
 from django.contrib.auth.models import User
-
+from django.http import JsonResponse
+from base.utils import validar_usuario
 from usuarios.models.colaborador import Colaborador
 
 # Create your views here.
@@ -9,17 +10,26 @@ from usuarios.models.colaborador import Colaborador
 
 def cadastrar_cliente(request):
     if request.method == "POST":
-        user = User.objects.create(
+        mensagem_error = validar_usuario(
+            request.POST["email"],
+            request.POST["senha1"],
+            request.POST["senha2"])
+        print("mensagem_error",mensagem_error)
+        if mensagem_error:
+            return JsonResponse(mensagem_error)
+            # return render(request,'site/cadastro.html',mensagem_error)
+        user = User.objects.create_user(
             username = request.POST["email"],
-            email=request.POST["email"])
-        user.set_password(request.POST["senha1"])
+            email=request.POST["email"],
+            password=request.POST["senha1"]
+            )
         Clientes.objects.create(
             nome = request.POST["nome"],
             user = user,
             email =request.POST["email"],
             telefone = request.POST["whapp"]
         )
-        return redirect("login")
+        return JsonResponse({"sucesso":"true"})
     return render(request,'site/cadastro.html')
 
 def clientes(request):
@@ -48,10 +58,12 @@ def funcionarios(request):
 
 def criar_funcionarios(request):
     if request.method == "POST":
-        user = User.objects.create(
+        user = User.objects.create_user(
             username = request.POST["email"],
-            email=request.POST["email"])
-        user.set_password(request.POST["senha1"])
+            email=request.POST["email"],
+            password=request.POST["senha1"]
+            )
+        
         print(request.POST["tipo"])
         Colaborador.objects.create(
             nome = request.POST["nome"],

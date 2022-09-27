@@ -79,7 +79,7 @@ def agendamento(request,servico_id):
             }
             )
 
-@login_required(login_url='/login')
+@login_required(login_url='/entrar')
 def agendar(request):
     
     if request.method == "POST":

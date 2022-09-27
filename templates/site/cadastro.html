@@ -4,47 +4,56 @@
 
 
 {% block content %}
-
+{% if tipo_status %}
+<div class="alert" style="background-color: {{color}}; display: flex; align-items: center; justify-content: center;">
+    
+    <strong>{{tipo_status}}! </strong>  {{Mensagem}}.
+    <span class="closebtn"  onclick="this.parentElement.style.display='none';">&times;</span> 
+</div>
+{% endif %}
+<div class="loader">
+    <img src="{% static 'img/icons/loading.gif' %}" alt="">
+</div>
 <section class="">
     <form class="cadastrar_cliente" action="{% url 'cadastrar_cliente' %}" method="post">
         {% csrf_token %}
-        <h1>App Service</h1>
+        <img width="150px" src="{% static 'img/icons/logo.png' %}" alt="" srcset="">
         <div class="campo_input">
             <div>
                 <label>Nome</label>
             </div>
             
-            <input type="text" placeholder="Digite seu nome!" name="nome" id="">
+            <input type="text" placeholder="Digite seu nome!" name="nome" >
         </div>
             
         <div class="campo_input">
             <div>
                 <label>E-mail</label>
             </div>
-            <input type="email" placeholder="Digite seu e-mail!" name="email" id="">
+            <input type="email" placeholder="Digite seu e-mail!" name="email">
         </div>
         <div class="campo_input">
             <div>
                 <label>Whatsapp</label>
             </div>
-            <input type="text" placeholder="Digite seu Whatsapp!" name="whapp" id="">
+            <input class="telefone" type="text" placeholder="Digite seu Whatsapp!" name="whapp">
         </div>
         <div class="campo_input">
             <div>
         
                 <label>Senha</label>
             </div>
-            <input type="password" placeholder="Digite sua senha!" name="senha1" id="">
+            <input id="password" class="password" type="text" placeholder="Digite sua senha!" name="senha1" onkeyup="verificaForcaSenha();">
+            <span class="password-status"></span>
         </div>
         <div class="campo_input">
             <div>
         
                 <label for="senha2">Repita sua senha</label> 
             </div>
-        
-            <input type="password" placeholder="Digite sua senha!" name="senha2" id="">
+            <input id="password2" class="password2" type="text" placeholder="Digite sua senha!" name="senha2" >
+            <span class="password-status-senha2 "></span>
         </div>
-    
             <input class="login_entrar" type="submit" value="Cadastrar!">        
     </form>
 </section>

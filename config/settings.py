@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # My apps
+    'storages',
     "base",
     "usuarios",
     "cadastro",
@@ -122,6 +123,12 @@ USE_I18N = True
 
 USE_TZ = True
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID  = "AKIAYA7KIFMAKNWG2NME"
+AWS_SECRET_ACCESS_KEY = "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"
+AWS_STORAGE_BUCKET_NAME = "asaturismoimagens"
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
@@ -139,5 +146,7 @@ STATICFILES_DIRS = [
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
+
+LOGOUT_REDIRECT_URL = "/"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 django_heroku.settings(locals())
