@@ -40,15 +40,29 @@ function verificaForcaSenha()
 	}
 }
 
-// function validarSenhas()
-// {
-//     if ($("#password").val() !== $("#password2").val()){
-//         console.log($("#password").val(),$("#password2").val())
-//         $('.password-status-senha2').html("<span style='color:red'>Senha diferente da primeira</span>");
-//     }
-// }
+var check = function () {
 
+  var len = password1.value.length;
 
+  if (len >= 8) {
+
+    if (document.getElementById('password1').value ==
+      document.getElementById('password2').value) {
+      document.getElementById('messagepass').style.color = 'green';
+      document.getElementById('messagepass').innerHTML = 'Senhas OK!';
+      document.getElementById("criar_cadastro").disabled = false;
+    } else {
+      document.getElementById('messagepass').style.color = 'red';
+      document.getElementById('messagepass').innerHTML = 'Senhas não conferem!';
+      document.getElementById("criar_cadastro").disabled = true;
+    }
+
+  } else {
+    document.getElementById('messagepass').style.color = 'red';
+    document.getElementById('messagepass').innerHTML = 'Insira no mínimo 8 caracteres!';
+    document.getElementById("criar_cadastro").disabled = true;
+  }
+}
 
 $(function(){
     $(".cadastrar_cliente").submit(function(e){
