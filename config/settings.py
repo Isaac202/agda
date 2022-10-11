@@ -15,7 +15,11 @@ SECRET_KEY = 'django-insecure-epw-(!%mc&)4eftz0yb3h-b#%n)x$v&_-co5pazgeqv_@g(3)4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+                'https://espacoagdaribeiro.com.br',
+                'https://www.espacoagdaribeiro.com.br',
+                'http://localhost:8000/',
+                ]
 
 
 # Application definition
