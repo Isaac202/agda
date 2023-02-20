@@ -19,6 +19,7 @@ ALLOWED_HOSTS = [
                 'https://espacoagdaribeiro.com.br',
                 'https://www.espacoagdaribeiro.com.br',
                 'http://localhost:8000/',
+                "*",
                 ]
 
 
