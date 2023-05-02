@@ -2,8 +2,11 @@ from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
+
+@csrf_exempt
 def entrar(request): 
     if request.method == "POST":
         user = User.objects.get(username=request.POST['usuario'])

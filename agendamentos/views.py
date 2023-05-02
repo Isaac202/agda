@@ -6,6 +6,7 @@ from agendamentos.models.servicos import Servico
 from usuarios.models.clientes import Clientes
 from usuarios.models.colaborador import Colaborador
 import calendar 
+from django.views.decorators.csrf import csrf_exempt
 from datetime import date, datetime
 from agendamentos.forms import HorarioForm
 from django.contrib.auth.decorators import login_required
@@ -28,6 +29,7 @@ def servicos(request):
                 )
 
 @login_required(login_url='/login')
+@csrf_exempt
 def agendamento(request,servico_id):
     servico = Servico.objects.filter(id=servico_id)
     horarios_disponiveis_do_servico = Horario.objects.filter(servico=servico_id).filter(disponivel=True)
@@ -80,6 +82,7 @@ def agendamento(request,servico_id):
             )
 
 @login_required(login_url='/entrar')
+@csrf_exempt
 def agendar(request):
     
     if request.method == "POST":
@@ -127,7 +130,7 @@ def listar_servicos(request):
                         "servicos":servico
                     }
                     )
-
+@csrf_exempt
 def criar_servicos(request):
     
     if request.method == "POST":
@@ -149,7 +152,7 @@ def criar_servicos(request):
                     )
     
 
-
+@csrf_exempt
 def editar_servicos(request, servico_id):
     servico =  Servico.objects.filter(id=servico_id)
     print(servico)

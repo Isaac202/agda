@@ -57,7 +57,7 @@ def funcionarios(request):
                 }
                 )
     
-
+@csrf_exempt
 def criar_funcionarios(request):
     if request.method == "POST":
         user = User.objects.create_user(
@@ -80,7 +80,7 @@ def criar_funcionarios(request):
                 "admin/criar_funcionarios.html",
                 )
     
-
+@csrf_exempt
 def editar_funcionarios(request, funcionario_id):
     funcionario = Colaborador.objects.filter(id=funcionario_id)
     usuario_do_funcionario = list(funcionario.values_list("user",flat=True))[0]
@@ -110,7 +110,7 @@ def editar_funcionarios(request, funcionario_id):
                 }
                 )
     
-    
+@csrf_exempt
 def excluir_funcionarios(request, funcionario_id):
     funcionario = Colaborador.objects.filter(id=funcionario_id)
     funcionario.delete()
