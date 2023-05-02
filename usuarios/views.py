@@ -3,11 +3,12 @@ from usuarios.models.clientes import Clientes
 from django.contrib.auth.models import User
 from django.http import JsonResponse
 from base.utils import validar_usuario
+from django.views.decorators.csrf import csrf_exempt
 from usuarios.models.colaborador import Colaborador
 
 # Create your views here.
 
-
+@csrf_exempt
 def cadastrar_cliente(request):
     if request.method == "POST":
         print(request.POST)
