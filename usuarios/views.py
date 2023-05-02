@@ -10,6 +10,7 @@ from usuarios.models.colaborador import Colaborador
 
 def cadastrar_cliente(request):
     if request.method == "POST":
+        print(request.POST)
         mensagem_error = validar_usuario(
             request.POST["email"],
             request.POST["senha1"],

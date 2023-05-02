@@ -15,12 +15,7 @@ SECRET_KEY = 'django-insecure-epw-(!%mc&)4eftz0yb3h-b#%n)x$v&_-co5pazgeqv_@g(3)4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-                'https://espacoagdaribeiro.com.br',
-                'https://www.espacoagdaribeiro.com.br',
-                'http://localhost:8000/',
-                "*",
-                ]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -151,6 +146,7 @@ STATICFILES_DIRS = [
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
+CSRF_COOKIE_SECURE = False
 
 LOGOUT_REDIRECT_URL = "/"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
